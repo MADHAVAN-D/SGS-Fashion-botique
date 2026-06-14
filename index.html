@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGS Fashion Boutique – Custom Tailoring in Bangalore</title>
+  <meta name="description" content="SGS Fashion Boutique offers premium custom blouse stitching, chudidar tailoring, and designer fashion in Bangalore. Courier delivery available across Bangalore." />
+  <meta name="keywords" content="custom blouse stitching Bangalore, chudidar tailoring, boutique tailoring Bangalore, designer blouse, salwar suit tailoring" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --blush:    #F4D6D0;
+      --petal:    #EAB8B0;
+      --cream:    #FAF5EF;
+      --ivory:    #FFFDF9;
+      --gold:     #C8A96E;
+      --gold-lt:  #E8D5A8;
+      --charcoal: #2C2420;
+      --muted:    #6B5B55;
+      --border:   #EAD8CF;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --sans:     'DM Sans', system-ui, sans-serif;
+      --radius:   4px;
+      --shadow:   0 8px 40px rgba(44,36,32,.08);
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--sans); background: var(--ivory); color: var(--charcoal); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── TYPOGRAPHY ─── */
+    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); letter-spacing: -.01em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+    h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+    p  { line-height: 1.75; color: var(--muted); font-size: .95rem; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 900;
+      background: rgba(255,253,249,.92); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand { font-family: var(--serif); font-size: 1.35rem; letter-spacing: .04em; color: var(--charcoal); }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .85rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: #fff; border: none; border-radius: var(--radius);
+      padding: .5rem 1.2rem; font-family: var(--sans); font-size: .8rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: background .2s;
+    }
+    .nav-cta:hover { background: #b8954f; }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; }
+    .burger span { width: 24px; height: 1.5px; background: var(--charcoal); display: block; transition: all .3s; }
+
+    /* ─── HERO ─── */
+    #home {
+      min-height: 100vh; padding-top: 64px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 55%, #e8c8c0 100%);
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem;
+      padding-left: 8%; padding-right: 5%;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--gold-lt); border-radius: 40px;
+      padding: .35rem 1rem; font-size: .75rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--charcoal); margin-bottom: 1.5rem;
+    }
+    .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero-title { margin-bottom: 1rem; }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1rem; color: var(--muted); margin: 1.2rem 0 2.5rem; line-height: 1.7; max-width: 420px; }
+    .hero-sub strong { color: var(--charcoal); font-weight: 500; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--charcoal); color: var(--ivory); border: none; border-radius: var(--radius);
+      padding: .85rem 2rem; font-family: var(--sans); font-size: .85rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: all .25s;
+    }
+    .btn-primary:hover { background: #1a1410; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(44,36,32,.2); }
+    .btn-outline {
+      background: transparent; color: var(--charcoal); border: 1.5px solid var(--charcoal);
+      border-radius: var(--radius); padding: .85rem 2rem;
+      font-family: var(--sans); font-size: .85rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: all .25s;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .btn-outline:hover { background: var(--charcoal); color: var(--ivory); }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      padding: 3rem 0 2rem;
+    }
+    .hero-canvas {
+      width: 380px; max-width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #f7e8e4 0%, #edd5cc 50%, #e0bfb5 100%);
+      border-radius: 12px 80px 12px 80px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; box-shadow: var(--shadow);
+    }
+    .hero-canvas-inner { position: relative; z-index: 2; text-align: center; padding: 2rem; }
+    .hero-canvas-inner .fabric-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .hero-canvas-inner h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--charcoal); margin-bottom: .5rem; }
+    .hero-canvas-inner p { font-size: .82rem; color: var(--muted); }
+    /* Decorative threads */
+    .thread { position: absolute; width: 1px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
+    .t1 { height: 60%; top: 20%; left: 15%; opacity: .4; }
+    .t2 { height: 40%; top: 35%; right: 20%; opacity: .3; }
+    .t3 { height: 70%; top: 10%; left: 50%; opacity: .25; }
+    .hero-badge {
+      position: absolute; bottom: -1rem; left: -1rem;
+      background: var(--ivory); border: 1px solid var(--border);
+      border-radius: 8px; padding: .8rem 1.2rem; box-shadow: var(--shadow);
+      font-family: var(--serif); font-size: 1rem;
+    }
+    .hero-badge span { display: block; font-size: .7rem; color: var(--muted); font-family: var(--sans); }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 6rem 8%; }
+    .section-label {
+      font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--gold); font-family: var(--sans); margin-bottom: 1rem; display: block;
+    }
+    .section-title { margin-bottom: 1.2rem; }
+    .divider { width: 48px; height: 1.5px; background: var(--gold); margin: 1.5rem 0 2.5rem; }
+    .centered { text-align: center; }
+    .centered .divider { margin-left: auto; margin-right: auto; }
+
+    /* ─── TAGLINE STRIP ─── */
+    .tagline-strip {
+      background: var(--charcoal); color: var(--ivory);
+      padding: 1.2rem 0; overflow: hidden;
+    }
+    .tagline-track {
+      display: flex; gap: 4rem; white-space: nowrap;
+      animation: ticker 22s linear infinite;
+    }
+    .tagline-track span {
+      font-family: var(--serif); font-style: italic; font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+    .tagline-track .dot { color: var(--gold); font-style: normal; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-visual {
+      position: relative; aspect-ratio: 4/5;
+      background: linear-gradient(160deg, var(--blush), var(--petal));
+      border-radius: 80px 12px 80px 12px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-visual-inner { text-align: center; }
+    .about-visual-inner .big-icon { font-size: 5rem; margin-bottom: 1rem; }
+    .about-stat {
+      position: absolute; top: 2rem; right: -2rem;
+      background: var(--ivory); border-radius: 8px; padding: 1rem 1.4rem;
+      box-shadow: var(--shadow); text-align: center;
+    }
+    .about-stat .num { font-family: var(--serif); font-size: 2rem; color: var(--gold); }
+    .about-stat .lbl { font-size: .72rem; color: var(--muted); letter-spacing: .06em; }
+    .about-pillars { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .pillar { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--gold-lt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
+    .pillar-text h4 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .3rem; }
+    .pillar-text p { font-size: .85rem; }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--ivory); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+    .service-card {
+      background: var(--cream); border: 1px solid var(--border); border-radius: 12px;
+      padding: 2rem 1.8rem; transition: all .3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(to right, var(--gold), var(--petal));
+      transform: scaleX(0); transform-origin: left; transition: transform .3s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .service-card:hover::after { transform: scaleX(1); }
+    .svc-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .svc-title { font-family: var(--serif); font-size: 1.25rem; margin-bottom: .6rem; }
+    .svc-desc { font-size: .85rem; line-height: 1.7; color: var(--muted); }
+    .svc-tag { display: inline-block; margin-top: 1rem; font-size: .72rem; letter-spacing: .08em; color: var(--gold); text-transform: uppercase; }
+    .services-note {
+      margin-top: 2.5rem; text-align: center;
+      font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--muted);
+    }
+
+    /* ─── PROCESS ─── */
+    #process { background: var(--charcoal); color: var(--ivory); }
+    #process .section-label { color: var(--gold-lt); }
+    #process .section-title { color: var(--ivory); }
+    #process p { color: #b8a89e; }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .step { text-align: center; }
+    .step-num { font-family: var(--serif); font-size: 3.5rem; color: var(--gold); opacity: .4; line-height: 1; }
+    .step-title { font-family: var(--serif); font-size: 1.15rem; color: var(--ivory); margin: .5rem 0; }
+    .step-desc { font-size: .82rem; color: #b8a89e; }
+
+    /* ─── ORDER / CONTACT ─── */
+    #order { background: linear-gradient(135deg, var(--cream), var(--blush)); }
+    .order-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 640px; }
+    .order-info h3 { font-family: var(--serif); font-size: 2rem; margin-bottom: 1rem; }
+    .contact-methods { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .contact-method {
+      display: flex; gap: 1rem; align-items: center;
+      background: var(--ivory); border-radius: 10px; padding: 1.2rem;
+      border: 1px solid var(--border);
+    }
+    .contact-method .ico { font-size: 1.5rem; }
+    .contact-method h4 { font-family: var(--serif); font-size: 1rem; margin-bottom: .2rem; }
+    .contact-method p { font-size: .82rem; margin: 0; }
+    .courier-note {
+      margin-top: 2rem; background: var(--gold-lt); border-radius: 8px;
+      padding: 1.2rem 1.5rem; border-left: 3px solid var(--gold);
+    }
+    .courier-note p { color: var(--charcoal); font-size: .85rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal); color: var(--ivory);
+      padding: 4rem 8% 2rem;
+    }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,253,249,.1); }
+    .footer-brand { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem; }
+    .footer-brand span { color: var(--gold); }
+    .footer-tagline { font-size: .85rem; color: #b8a89e; font-style: italic; font-family: var(--serif); }
+    .footer-col h4 { font-family: var(--serif); font-size: 1rem; color: var(--ivory); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-col ul li a { font-size: .83rem; color: #b8a89e; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: .78rem; color: #7a6a64; margin: 0; }
+    .social-links { display: flex; gap: 1rem; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,253,249,.15);
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+      transition: all .2s;
+    }
+    .social-link:hover { background: var(--gold); border-color: var(--gold); }
+
+    /* ─── FLOATING BUTTONS ─── */
+    .float-btns {
+      position: fixed; bottom: 2rem; right: 1.5rem; z-index: 1000;
+      display: flex; flex-direction: column; gap: .75rem; align-items: flex-end;
+    }
+    .float-btn {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .7rem 1.2rem; border-radius: 50px; border: none; cursor: pointer;
+      font-family: var(--sans); font-size: .82rem; font-weight: 500;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18); transition: all .25s;
+      white-space: nowrap;
+    }
+    .float-btn:hover { transform: translateX(-4px) scale(1.03); box-shadow: 0 8px 28px rgba(0,0,0,.22); }
+    .float-wa { background: #25D366; color: #fff; }
+    .float-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+    .float-btn svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+    .float-label { display: none; }
+    @media (min-width: 540px) { .float-label { display: inline; } }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-menu {
+      display: none; position: fixed; inset: 64px 0 0; background: var(--ivory);
+      z-index: 800; flex-direction: column; padding: 2rem 8%; gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.3rem; font-family: var(--serif); color: var(--charcoal); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #home { grid-template-columns: 1fr; padding: 8rem 8% 4rem; text-align: center; }
+      #home .hero-sub { margin: 1.2rem auto 2.5rem; }
+      #home .hero-btns { justify-content: center; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual { max-height: 260px; }
+      .about-stat { right: 0; }
+      .order-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .burger { display: flex; }
+    }
+    @media (max-width: 540px) {
+      section { padding: 4rem 6%; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ─── SCROLL REVEAL (simple CSS class toggle via JS) ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <div class="nav-brand">SGS <span>✦</span> Fashion Boutique</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <a href="#order" class="nav-cta">Order Now</a>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#process" onclick="closeMobile()">Process</a>
+  <a href="#order" onclick="closeMobile()">Order</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="home">
+  <div class="hero-content">
+    <div class="hero-label">Bangalore's Boutique Atelier</div>
+    <h1 class="hero-title">SGS Fashion<br><em>Boutique</em></h1>
+    <p class="hero-sub">
+      <strong>Where Fabric Meets Creativity</strong><br>
+      Custom Blouses · Chudidars · Designer Stitching<br>Delivered Across Bangalore
+    </p>
+    <div class="hero-btns">
+      <a href="#order" class="btn-primary">Order Your Design</a>
+      <a href="https://wa.me/918971612802?text=Hi%20SGS%20Fashion%20Boutique%2C%20I%20want%20to%20place%20a%20custom%20order." target="_blank" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-canvas">
+      <div class="thread t1"></div>
+      <div class="thread t2"></div>
+      <div class="thread t3"></div>
+      <div class="hero-canvas-inner">
+        <div class="fabric-icon">🧵</div>
+        <h3>Crafted with<br>Precision</h3>
+        <p>Every stitch tells a story</p>
+      </div>
+    </div>
+    <div class="hero-badge">
+      ✦ Premium Tailoring
+      <span>Bangalore's Finest</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TAGLINE STRIP ─── -->
+<div class="tagline-strip">
+  <div class="tagline-track">
+    <span>Fabric + Threads = Endless Possibilities</span>
+    <span class="dot">✦</span>
+    <span>Your Design, Our Craftsmanship</span>
+    <span class="dot">✦</span>
+    <span>Custom Fashion Tailored to Perfection</span>
+    <span class="dot">✦</span>
+    <span>Fabric + Threads = Endless Possibilities</span>
+    <span class="dot">✦</span>
+    <span>Your Design, Our Craftsmanship</span>
+    <span class="dot">✦</span>
+    <span>Custom Fashion Tailored to Perfection</span>
+    <span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-visual-inner">
+        <div class="big-icon">✂️</div>
+        <p style="color:var(--muted);font-size:.85rem;">Crafting since day one</p>
+      </div>
+      <div class="about-stat">
+        <div class="num">100%</div>
+        <div class="lbl">Handcrafted</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="section-label">Our Story</span>
+      <h2 class="section-title">Tailored Fashion,<br><em>Personally Yours</em></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom:1.2rem;">At SGS Fashion Boutique, we believe every piece of fabric holds a story waiting to be told. We transform fabric and thread into elegant, custom-made fashion designed uniquely for every customer — with precision, creativity, and heartfelt care.</p>
+      <p>From a graceful blouse to a complete salwar set, every garment is conceived around your vision and brought to life by skilled hands that understand the nuance of fit, drape, and detail.</p>
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">🎨</div>
+          <div class="pillar-text">
+            <h4>Creative Design</h4>
+            <p>We blend traditional aesthetics with modern sensibility — no two designs are ever alike.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">📐</div>
+          <div class="pillar-text">
+            <h4>Precision Tailoring</h4>
+            <p>Measurements are everything. Your outfit is cut and sewn to fit your body, not a mannequin.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🚚</div>
+          <div class="pillar-text">
+            <h4>Courier Across Bangalore</h4>
+            <p>Your finished garment arrives safely at your door — packed with care, delivered on time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="centered reveal">
+    <span class="section-label">What We Create</span>
+    <h2 class="section-title">Our Services</h2>
+    <div class="divider"></div>
+    <p style="max-width:520px;margin:0 auto 3rem;">Each piece is handcrafted with meticulous attention to detail, from the first consultation to the final stitch.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="svc-icon">👘</div>
+      <div class="svc-title">Custom Blouse Stitching</div>
+      <p class="svc-desc">Designer blouses in traditional and contemporary cuts — backless, high-neck, puff sleeve, mirror work, and more. Designed to complement your saree perfectly.</p>
+      <span class="svc-tag">→ Most Popular</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">🌸</div>
+      <div class="svc-title">Designer Chudidar / Salwar Sets</div>
+      <p class="svc-desc">Elegant churidar, Patiala, Anarkali, and straight-cut salwar suits tailored from your fabric with matching dupatta styling.</p>
+      <span class="svc-tag">→ Full Sets Available</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">🧶</div>
+      <div class="svc-title">Fabric-Based Custom Outfit Design</div>
+      <p class="svc-desc">Bring your own fabric and we'll design a one-of-a-kind outfit around it — suggesting silhouettes, cuts, and thread combinations that bring it to life.</p>
+      <span class="svc-tag">→ Bring Your Fabric</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">✨</div>
+      <div class="svc-title">Embroidery & Fashion Styling</div>
+      <p class="svc-desc">Thread embroidery, sequin work, patch detailing, and creative styling touches that elevate any garment into a statement piece.</p>
+      <span class="svc-tag">→ Finishing Touches</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">📏</div>
+      <div class="svc-title">Alterations & Perfect Fitting</div>
+      <p class="svc-desc">Resize, reshape, or rework existing garments so they fit beautifully. We handle everything from hemming to full restyling.</p>
+      <span class="svc-tag">→ Expert Adjustments</span>
+    </div>
+    <div class="service-card reveal" style="background:var(--charcoal);border-color:var(--charcoal);">
+      <div class="svc-icon">💫</div>
+      <div class="svc-title" style="color:var(--ivory);">Your Vision, Realised</div>
+      <p class="svc-desc" style="color:#b8a89e;">Have something in mind that's not on the list? Describe it — we love bringing unique ideas to life.</p>
+      <a href="https://wa.me/918971612802?text=Hi%20SGS%20Fashion%20Boutique%2C%20I%20have%20a%20custom%20design%20idea." target="_blank" style="display:inline-block;margin-top:1.2rem;color:var(--gold);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;">Chat with us →</a>
+    </div>
+  </div>
+  <p class="services-note reveal">"Every outfit is handcrafted with attention to detail and creativity."</p>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section id="process">
+  <div class="centered reveal">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title" style="color:var(--ivory);">From Fabric to<br><em style="color:var(--gold);">Finished Garment</em></h2>
+    <div class="divider" style="margin-left:auto;margin-right:auto;"></div>
+  </div>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Share Your Design</div>
+      <p class="step-desc">Send us your design ideas, reference images, or fabric details via WhatsApp or our order form.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">Measurement & Consultation</div>
+      <p class="step-desc">We confirm your measurements and discuss fabric, thread, and style preferences in detail.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">Crafting Begins</div>
+      <p class="step-desc">Our skilled tailors cut, sew, and embroider your garment with precision and care.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-title">Quality Check</div>
+      <p class="step-desc">Every piece goes through a thorough quality review before it leaves the boutique.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">05</div>
+      <div class="step-title">Safe Delivery</div>
+      <p class="step-desc">Your beautifully packed garment is couriered across Bangalore, right to your door.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ORDER ─── -->
+<section id="order">
+  <div class="order-grid">
+    <div class="reveal">
+      <span class="section-label">Place An Order</span>
+      <h2 class="section-title">Ready to Create<br><em>Something Beautiful?</em></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom:2rem;">Reach us directly on WhatsApp or Instagram — we respond quickly and love talking fashion.</p>
+      <div class="contact-methods">
+        <a href="https://wa.me/918971612802?text=Hi%20SGS%20Fashion%20Boutique%2C%20I%20want%20to%20place%20a%20custom%20order." target="_blank" class="contact-method">
+          <span class="ico">💬</span>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>+91 89716 12802 — Chat for instant replies</p>
+          </div>
+        </a>
+        <a href="https://instagram.com/sgs_fashion_botique" target="_blank" class="contact-method">
+          <span class="ico">📸</span>
+          <div>
+            <h4>Instagram</h4>
+            <p>@sgs_fashion_botique — Browse our work</p>
+          </div>
+        </a>
+      </div>
+      <div class="courier-note">
+        <p>🚚 <strong>Courier delivery available across Bangalore</strong> — your order is safely packed and delivered to your address.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">SGS <span>✦</span> Fashion Boutique</div>
+      <p class="footer-tagline">"Fabric + Threads = Endless Possibilities"</p>
+      <p style="margin-top:1rem;font-size:.82rem;color:#7a6a64;max-width:240px;">Premium custom tailoring and designer stitching, delivered across Bangalore.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#order">Place an Order</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Blouse Stitching</a></li>
+        <li><a href="#services">Chudidar Sets</a></li>
+        <li><a href="#services">Custom Design</a></li>
+        <li><a href="#services">Embroidery</a></li>
+        <li><a href="#services">Alterations</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 SGS Fashion Boutique. All rights reserved. | Bangalore, Karnataka</p>
+    <div class="social-links">
+      <a href="https://instagram.com/sgs_fashion_botique" target="_blank" class="social-link" title="Instagram">📸</a>
+      <a href="https://wa.me/918971612802" target="_blank" class="social-link" title="WhatsApp">💬</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── FLOATING BUTTONS ─── -->
+<div class="float-btns">
+  <a href="https://instagram.com/sgs_fashion_botique" target="_blank" class="float-btn float-ig">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    <span class="float-label">@sgs_fashion_botique</span>
+  </a>
+  <a href="https://wa.me/918971612802?text=Hi%20SGS%20Fashion%20Boutique%2C%20I%20want%20to%20place%20a%20custom%20order." target="_blank" class="float-btn float-wa">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="float-label">Chat on WhatsApp</span>
+  </a>
+</div>
+
+<script>
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const menu   = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  function closeMobile() { menu.classList.remove('open'); }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+// Duplicate tagline strip for seamless loop
+  const track = document.querySelector('.tagline-track');
+  track.innerHTML += track.innerHTML;
+</script>
+</body>
+</html>
